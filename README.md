@@ -1,11 +1,10 @@
-### `README.md`
+### `README.md` ###
 
-```markdown
-# Cron Parser
+# Cron Parser #
 
 This is a simple Go command-line application that parses a cron string and expands each field to show the times at which it will run. It only considers the standard cron format with five time fields (minute, hour, day of month, month, and day of week) plus a command. It does not handle special time strings such as "@yearly".
 
-## Project Structure
+## Project Structure ##
 
 ```
 cron_parser/
