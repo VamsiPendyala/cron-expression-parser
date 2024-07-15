@@ -74,11 +74,23 @@ func expandCronField(field string, min int, max int) []string {
 				rangeParts := strings.Split(part, "-")
 				start, _ := strconv.Atoi(rangeParts[0])
 				end, _ := strconv.Atoi(rangeParts[1])
+				if start < min {
+					start = min
+				}
+				if end > max {
+					end = max
+				}
 				for i := start; i <= end; i++ {
 					result = append(result, fmt.Sprintf("%d", i))
 				}
 			} else {
 				num, _ := strconv.Atoi(part)
+				if num < min {
+					num = min
+				}
+				if num > max {
+					num = max
+				}
 				result = append(result, fmt.Sprintf("%d", num))
 			}
 		}
@@ -86,6 +98,14 @@ func expandCronField(field string, min int, max int) []string {
 		rangeParts := strings.Split(field, "-")
 		start, _ := strconv.Atoi(rangeParts[0])
 		end, _ := strconv.Atoi(rangeParts[1])
+
+		if start < min {
+			start = min
+		}
+		if end > max {
+			end = max
+		}
+
 		for i := start; i <= end; i++ {
 			result = append(result, fmt.Sprintf("%d", i))
 		}
